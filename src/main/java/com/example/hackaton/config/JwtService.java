@@ -1,4 +1,4 @@
-/*package com.example.hackaton.config;
+package com.example.hackaton.config;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -60,4 +60,3 @@ public class JwtService {
         return JWT.decode(token).getClaim(claim).asString();
     }
 }
-*/

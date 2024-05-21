@@ -12,10 +12,10 @@ public class Etiqueta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int idEtiqueta;
+    Integer idEtiqueta;
 
     String nombre;
 
-    @ManyToMany(mappedBy = "etiquetas")
+    @ManyToMany
     List<Salon> salones;
 }

@@ -14,7 +14,7 @@ public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name ="id", nullable=false)
-    private long idReserva;
+    Integer idReserva;
 
     Date fecha;
 

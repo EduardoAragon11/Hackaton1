@@ -13,19 +13,19 @@ public class Salon {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int idSalon;
+    Integer idSalon;
 
     String nombre;
 
     String ubicacion;
 
-    int capacidad;
+    Integer capacidad;
 
     String descripcion;
 
-    @ManyToMany(mappedBy = "salones")
+    @ManyToMany
     List<Etiqueta> etiquetas;
 
-    @OneToMany(mappedBy = "salon")
+    @OneToMany
     List<Reserva> reservas;
 }
