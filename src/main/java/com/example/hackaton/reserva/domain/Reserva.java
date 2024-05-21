@@ -1,11 +1,8 @@
 package com.example.hackaton.reserva.domain;
 
 import com.example.hackaton.user.domain.User;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Time;
 import java.util.Date;
@@ -30,5 +27,7 @@ public class Reserva {
 
     @ManyToOne(cascade = CascadeType.ALL)
     Salon salon;
+
+
 
 }
