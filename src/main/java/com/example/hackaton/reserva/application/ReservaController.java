@@ -1,6 +1,15 @@
 package com.example.hackaton.reserva.application;
 
-public class ReservaController {
+import org.springframework.beans.factory.annotation.Autowired;
 
+public class ReservaController {
+    @Autowired
+    private
+
+    //GET /reservas
+
+    //POST /reservas
+    //PUT /reservas/{id}
+    //DELETE /reservas/{id}
 
 }
