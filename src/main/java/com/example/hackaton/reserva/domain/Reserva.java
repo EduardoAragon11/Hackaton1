@@ -4,11 +4,8 @@ import com.example.hackaton.salon.domain.Salon;
 import com.example.hackaton.user.domain.User;
 import jakarta.persistence.*;
 import lombok.Data;
-
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.Date;
 
 @Data
@@ -31,4 +28,5 @@ public class Reserva {
 
     @ManyToOne(cascade = CascadeType.ALL)
     Salon salon;
+
 }
