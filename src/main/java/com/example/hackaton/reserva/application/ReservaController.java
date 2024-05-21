@@ -19,6 +19,7 @@ public class ReservaController {
     //GET /reservas
     @GetMapping()
     public ResponseEntity<Reserva> ListarReserva(){
+
         return ResponseEntity.ok(reservaService.ListarReserva());
     }
 
@@ -30,23 +31,16 @@ public class ReservaController {
     }
 
     //PUT /reservas/{id}
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Void> UpdateReserva(@RequestBody Reserva reserva, @PathVariable Long id){
-
+        reservaService.PutReserva(reserva, id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     //DELETE /reservas/{id}
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> DeleteReserva(@RequestBody Reserva reserva){
-
-
-    }
-
-    @DeleteMapping("/{rideId}")
-    public ResponseEntity<Void> deleteRide(@PathVariable Long rideId){
-        rideService.deleteRide(rideId);
+    public ResponseEntity<Void> DeleteReserva(@PathVariable Long id){
+        reservaService.DeleteReserva(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
-
 }
