@@ -24,8 +24,11 @@ public class Reserva {
 
     Time horaFin;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManytoOne(cascade = CascadeType.ALL)
     User user;
+    // @OnetoMany para user
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    Salon salon;
 
 }
