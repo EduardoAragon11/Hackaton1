@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 public class ReservaController {
 
+    @Autowired
+    ReservaService reservaService;
+
     //GET /reservas
     @GetMapping()
     public ResponseEntity<Reserva> ListarReserva(){
