@@ -24,7 +24,6 @@ public class Reserva {
 
     @ManyToOne(cascade = CascadeType.ALL)
     User user;
-    // @OnetoMany para user
 
     @ManyToOne(cascade = CascadeType.ALL)
     Salon salon;
