@@ -40,13 +40,17 @@ public class SalonService {
         Salon salon = salonRepository.findById(idSalon).orElseThrow(() -> new ResourceNotFoundException("Salon no encontrado"));
         Etiqueta etiqueta = etiquetaRepository.findById(idEtiqueta).orElseThrow(() -> new ResourceNotFoundException("Etiqueta no encontrada"));
         salon.getEtiquetas().add(etiqueta);
+        etiqueta.getSalones().add(salon);
         salonRepository.save(salon);
+        etiquetaRepository.save(etiqueta);
     }
 
     public void borrarAsociacion(Integer idSalon, Integer idEtiqueta) {
         Salon salon = salonRepository.findById(idSalon).orElseThrow(() -> new ResourceNotFoundException("Salon no encontrado"));
         Etiqueta etiqueta = etiquetaRepository.findById(idEtiqueta).orElseThrow(() -> new ResourceNotFoundException("Etiqueta no encontrada"));
         salon.getEtiquetas().remove(etiqueta);
+        etiqueta.getSalones().remove(salon);
         salonRepository.save(salon);
+        etiquetaRepository.save(etiqueta);
     }
 }

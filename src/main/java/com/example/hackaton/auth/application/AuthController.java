@@ -7,6 +7,7 @@ import com.example.hackaton.auth.dto.AuthRegisterRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,13 +18,13 @@ public class AuthController {
     AuthService authService;
 
     @PostMapping("/register")
-    ResponseEntity<AuthJwtResponse> register(AuthRegisterRequest req) {
+    ResponseEntity<AuthJwtResponse> register(@RequestBody AuthRegisterRequest req) {
         AuthJwtResponse token = authService.request(req);
         return ResponseEntity.ok(token);
     }
 
     @PostMapping("/login")
-    ResponseEntity<AuthJwtResponse> login(AuthLoginRequest req) {
+    ResponseEntity<AuthJwtResponse> login(@RequestBody AuthLoginRequest req) {
         AuthJwtResponse token = authService.login(req);
         return ResponseEntity.ok(token);
     }

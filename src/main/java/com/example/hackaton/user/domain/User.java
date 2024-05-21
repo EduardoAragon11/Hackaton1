@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -20,16 +21,16 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @Column(nullable = false)
+    @Column
     String email;
 
-    @Column(nullable = false)
+    @Column
     String nombre;
 
-    @Column(nullable = false)
+    @Column
     String telefono;
 
-    @Column(nullable = false)
+    @Column
     String password;
 
     @OneToMany
@@ -41,7 +42,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     @Override
@@ -61,5 +62,5 @@ public class User implements UserDetails {
     public boolean isEnabled(){return true;};
 
     @Override
-    public String getPassword(){return "no";}
+    public String getPassword(){return password;}
 }
