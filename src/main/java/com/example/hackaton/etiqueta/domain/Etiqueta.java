@@ -16,6 +16,9 @@ public class Etiqueta {
 
     String nombre;
 
+
+    @OneToMany
+    List<Etiqueta> salonEtiquetas;
     @ManyToMany
     List<Salon> salones;
 }
