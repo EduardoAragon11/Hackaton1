@@ -1,7 +1,11 @@
 package com.example.hackaton.salon.domain;
 
+import com.example.hackaton.reserva.domain.Reserva;
+import com.example.hackaton.salonEtiqueta.domain.SalonEtiqueta;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
