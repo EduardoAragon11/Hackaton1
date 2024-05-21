@@ -45,6 +45,7 @@ public class AuthService {
         User newUser = new User();
         newUser.setEmail(authRegisterRequest.getUsername());
         newUser.setPassword(passwordEncoder.encode(authRegisterRequest.getPassword()));
+        newUser.setTelefono(authRegisterRequest.getTelefono());
         //modelMApper!!!!!!!!!!
 
 
