@@ -1,5 +1,6 @@
 package com.example.hackaton.user.domain;
 
+import com.example.hackaton.reserva.domain.Reserva;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -18,18 +19,28 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @Column
+    @Column(nullable = false)
     String email;
 
-    @Column
+    @Column(nullable = false)
+    String nombre;
+
+    @Column(nullable = false)
+    String telefono;
+
+    @Column(nullable = false)
     String password;
 
-    @Column
-    Role role;
+    @OneToMany
+    private List<Reserva> reservas;
+
+    public void addReserva(Reserva reserva) {
+        reservas.add(reserva);
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_"+role.name()));
+        return null;
     }
 
     @Override
