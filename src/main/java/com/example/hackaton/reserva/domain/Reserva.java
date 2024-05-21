@@ -1,10 +1,14 @@
 package com.example.hackaton.reserva.domain;
 
+import com.example.hackaton.salon.domain.Salon;
 import com.example.hackaton.user.domain.User;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
 
 @Data
@@ -17,11 +21,11 @@ public class Reserva {
 
     Date fecha;
 
-    Time horaInicio;
+    LocalDateTime horaInicio;
 
-    Time horaFin;
+    LocalDate horaFin;
 
-    @ManytoOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     User user;
     // @OnetoMany para user
 
