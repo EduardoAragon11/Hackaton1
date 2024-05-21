@@ -3,6 +3,8 @@ package com.example.hackaton.etiqueta.domain;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @Entity
 public class Etiqueta {
@@ -14,5 +16,5 @@ public class Etiqueta {
     String nombre;
 
     @OneToMany(mappedBy = "etiqueta")
-    List<SalonEtiqueta> salonEtiquetas;
+    List<Etiqueta> salonEtiquetas;
 }
