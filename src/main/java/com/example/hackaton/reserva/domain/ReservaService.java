@@ -1,10 +1,13 @@
 package com.example.hackaton.reserva.domain;
 
 import com.example.hackaton.etiqueta.domain.Etiqueta;
+import com.example.hackaton.etiqueta.infrastructure.EtiquetaRepository;
 import com.example.hackaton.exceptions.ResourceNotFoundException;
 import com.example.hackaton.reserva.infraestructure.ReservaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ReservaService {
@@ -23,9 +26,9 @@ public class ReservaService {
         reservaRepository.deleteById(id);
     }
 
-    public void PutReserva(Reserva reserva, Long Id){
-        reservaRepository.findById(Id);
-        Reserva reserva2 =;
-        reservaRepository.save(reserva2);
+    public void PutReserva(Long Id){
+        /* Reserva reserva = reservaRepository.findById(Id);
+        reservaRepository.save(reserva);  no funciona */
     }
+
 }

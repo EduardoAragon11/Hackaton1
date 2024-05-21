@@ -19,7 +19,6 @@ public class ReservaController {
     //GET /reservas
     @GetMapping()
     public ResponseEntity<Reserva> ListarReserva(){
-
         return ResponseEntity.ok(reservaService.ListarReserva());
     }
 
@@ -32,8 +31,8 @@ public class ReservaController {
 
     //PUT /reservas/{id}
     @PutMapping("/{id}")
-    public ResponseEntity<Void> UpdateReserva(@RequestBody Reserva reserva, @PathVariable Long id){
-        reservaService.PutReserva(reserva, id);
+    public ResponseEntity<Void> UpdateReserva(@PathVariable Long id){
+        reservaService.PutReserva(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
