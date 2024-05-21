@@ -1,5 +1,6 @@
 package com.example.hackaton.etiqueta.domain;
 
+import com.example.hackaton.salon.domain.Salon;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -11,10 +12,13 @@ public class Etiqueta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int idEtiqueta;
+    Integer idEtiqueta;
 
     String nombre;
 
-    @OneToMany(mappedBy = "etiqueta")
+
+    @OneToMany
     List<Etiqueta> salonEtiquetas;
+    @ManyToMany
+    List<Salon> salones;
 }
