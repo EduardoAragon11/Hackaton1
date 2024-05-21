@@ -22,6 +22,9 @@ public class User implements UserDetails {
     String email;
 
     @Column
+    String password;
+
+    @Column
     Role role;
 
     @Override

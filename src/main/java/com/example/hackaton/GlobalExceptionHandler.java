@@ -2,6 +2,7 @@ package com.example.hackaton;
 
 import com.example.hackaton.exceptions.ResourceNotFoundException;
 import com.example.hackaton.exceptions.UnauthorizedOperationException;
+import com.example.hackaton.exceptions.UsernameAlreadyExists;
 import com.example.hackaton.exceptions.UsernameNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -27,4 +28,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(UsernameNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public String handleUsernameNotFoundException(UsernameNotFoundException e) { return e.getMessage(); }
+
+    @ExceptionHandler(UsernameAlreadyExists.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public String handleUsernameAlreadyExists(UsernameAlreadyExists e) { return e.getMessage(); }
 }
