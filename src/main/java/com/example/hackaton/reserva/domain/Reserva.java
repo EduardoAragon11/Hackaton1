@@ -31,7 +31,4 @@ public class Reserva {
 
     @ManyToOne(cascade = CascadeType.ALL)
     Salon salon;
-
-
-
 }
