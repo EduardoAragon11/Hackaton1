@@ -27,7 +27,8 @@ public class AuthService {
     JwtService jwtService;
 
     public AuthJwtResponse login(AuthLoginRequest authLoginRequest){
-        User user = userRepository.findByEmail(authLoginRequest.getUsername()).orElseThrow(() -> new UsernameNotFoundException ("not found user"));
+        User user = userRepository.findByEmail(authLoginRequest.getUsername()).orElseThrow(
+                () -> new UsernameNotFoundException ("not found user"));
         passwordEncoder.matches(authLoginRequest.getPassword(), user.getPassword());
         AuthJwtResponse authJwtResponse = new AuthJwtResponse();
         authJwtResponse.setToken(jwtService.generateToken(user));

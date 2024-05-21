@@ -22,7 +22,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests((authorizeHttpRequests) ->
                         authorizeHttpRequests
                                 .requestMatchers("/auth/**").permitAll()
-                                .anyRequest().permitAll()//CAMBIAAAAAAAAAAAR
+                                .anyRequest().authenticated()//CAMBIAAAAAAAAAAAR
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
