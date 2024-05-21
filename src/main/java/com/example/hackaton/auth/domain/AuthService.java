@@ -18,7 +18,7 @@ import java.util.Optional;
 @Service
 public class AuthService {
     @Autowired
-    UserRepository<User> userRepository;
+    UserRepository userRepository;
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -46,12 +46,6 @@ public class AuthService {
         newUser.setPassword(passwordEncoder.encode(authRegisterRequest.getPassword()));
         //modelMApper!!!!!!!!!!
 
-        if(authRegisterRequest.getIsUser()){
-            newUser.setRole(Role.X);
-        }
-        else{
-            newUser.setRole(Role.Y);
-        }
 
         userRepository.save(newUser);
         AuthJwtResponse authJwtResponse = new AuthJwtResponse();
