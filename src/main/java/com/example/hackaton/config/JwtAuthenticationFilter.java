@@ -1,4 +1,4 @@
-package com.example.hackaton.config;
+/*package com.example.hackaton.config;
 
 
 import jakarta.servlet.FilterChain;
@@ -36,3 +36,4 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 }
+*/

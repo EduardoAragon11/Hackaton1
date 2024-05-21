@@ -1,4 +1,4 @@
-package com.example.hackaton.auth.domain;
+/*package com.example.hackaton.auth.domain;
 
 import com.example.hackaton.auth.dto.AuthJwtResponse;
 import com.example.hackaton.auth.dto.AuthLoginRequest;
@@ -53,3 +53,4 @@ public class AuthService {
         return authJwtResponse;
     }
 }
+*/

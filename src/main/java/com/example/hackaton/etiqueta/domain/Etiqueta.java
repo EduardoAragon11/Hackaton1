@@ -1,7 +1,10 @@
 package com.example.hackaton.etiqueta.domain;
 
+import com.example.hackaton.salon.domain.Salon;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -13,6 +16,6 @@ public class Etiqueta {
 
     String nombre;
 
-    @OneToMany(mappedBy = "etiqueta")
-    List<SalonEtiqueta> salonEtiquetas;
+    @ManyToMany(mappedBy = "etiquetas")
+    List<Salon> salones;
 }
