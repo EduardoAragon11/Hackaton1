@@ -14,7 +14,7 @@ public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name ="id", nullable=false)
-    private long idReserva;
+    Integer idReserva;
 
     Date fecha;
 
@@ -24,7 +24,6 @@ public class Reserva {
 
     @ManyToOne(cascade = CascadeType.ALL)
     User user;
-    // @OnetoMany para user
 
     @ManyToOne(cascade = CascadeType.ALL)
     Salon salon;

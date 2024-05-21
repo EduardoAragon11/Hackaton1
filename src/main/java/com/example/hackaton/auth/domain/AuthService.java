@@ -18,7 +18,7 @@ import java.util.Optional;
 @Service
 public class AuthService {
     @Autowired
-    UserRepository<User> userRepository;
+    UserRepository userRepository;
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -27,7 +27,8 @@ public class AuthService {
     JwtService jwtService;
 
     public AuthJwtResponse login(AuthLoginRequest authLoginRequest){
-        User user = userRepository.findByEmail(authLoginRequest.getUsername()).orElseThrow(() -> new UsernameNotFoundException ("not found user"));
+        User user = userRepository.findByEmail(authLoginRequest.getUsername()).orElseThrow(
+                () -> new UsernameNotFoundException ("not found user"));
         passwordEncoder.matches(authLoginRequest.getPassword(), user.getPassword());
         AuthJwtResponse authJwtResponse = new AuthJwtResponse();
         authJwtResponse.setToken(jwtService.generateToken(user));
@@ -44,14 +45,9 @@ public class AuthService {
         User newUser = new User();
         newUser.setEmail(authRegisterRequest.getUsername());
         newUser.setPassword(passwordEncoder.encode(authRegisterRequest.getPassword()));
+        newUser.setTelefono(authRegisterRequest.getTelefono());
         //modelMApper!!!!!!!!!!
 
-        if(authRegisterRequest.getIsUser()){
-            newUser.setRole(Role.X);
-        }
-        else{
-            newUser.setRole(Role.Y);
-        }
 
         userRepository.save(newUser);
         AuthJwtResponse authJwtResponse = new AuthJwtResponse();
